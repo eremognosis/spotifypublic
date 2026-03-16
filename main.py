@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 import pandas as pd
 from time import time #### for nameing, for nothing is more uni ue anb progresisve as time, 4th dimension
 import logging
-
-OUTDATA = "spotifydata/rawjsons" ##### my windows ass literally wfucked up this earliwer after shifitng to linux frist
+# logging.basicConfig()
+logging.basicConfig(level=logging.INFO)
+OUTDATA = "../spotifydata/rawjsons" ##### my windows ass literally wfucked up this earliwer after shifitng to linux frist
 os.makedirs(OUTDATA, exist_ok=True)  #### sudo fiucket
 
 load_dotenv()
@@ -16,7 +17,7 @@ def getsavedata():
 
     with open(f"{OUTDATA}/{int(time())}.json","w") as f:
         json.dump(res1,fp=f, indent=4)
-        logging.log(f"{time()} Done. Added {len(res1['items'])} songs. Good night") # we shall feed paranoifd
+        logging.info(f"{time()} Done. Added {len(res1['items'])} songs. Good night") # we shall feed paranoifd
 
     
 getsavedata()  ###  i could use __name__ but i didnt 
